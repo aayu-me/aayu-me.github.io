@@ -3,19 +3,26 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="aayu — multidisciplinary artist, designer and developer. Art, code, and everything between." />
         <title>aayu — Artist, Designer & Developer</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-        
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+
         <link rel="stylesheet" href="style.css" />
 
         <script>
-            (function(){
-                var t = localStorage.getItem('theme') || 'light';
-                document.documentElement.setAttribute('data-theme', t);
+            (function () {
+                var t = localStorage.getItem("theme") || "light";
+                document.documentElement.setAttribute("data-theme", t);
             })();
         </script>
     </head>
@@ -26,29 +33,50 @@
         <div class="cursor-ring" id="cursorRing"></div>
 
         <nav id="mainNav">
-            <div class="nav-logo">~/aayu/Portfolio — 2026</div>
+            <div class="nav-logo">~/aayu/Portfolio/</div>
             <div class="nav-right">
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <label class="theme-toggle" title="Toggle dark mode">
                     <input type="checkbox" id="themeToggle" />
                     <div class="toggle-track">
                         <div class="toggle-icons">
-                            <svg class="icon-sun" viewBox="0 0 24 24" fill="currentColor">
-                                <circle cx="12" cy="12" r="5"/>
-                                <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <svg
+                                class="icon-sun"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                            >
+                                <circle cx="12" cy="12" r="5" />
+                                <path
+                                    d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    fill="none"
+                                />
                             </svg>
-                            <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                            <svg
+                                class="icon-moon"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                            >
+                                <path
+                                    d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+                                />
                             </svg>
                         </div>
                     </div>
                     <div class="toggle-thumb"></div>
                 </label>
-                <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <button
+                    class="hamburger"
+                    id="hamburger"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                >
                     <span></span><span></span><span></span>
                 </button>
             </div>
@@ -58,16 +86,17 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
 
         <section class="hero" id="home">
             <div class="hero-left">
-                <p class="hero-eyebrow">Artist · Designer · Developer</p>
-                <h1 class="hero-name">
-                    Just<br /><em>code</em><br />& arts.
-                </h1>
+                <p class="hero-eyebrow">
+                    <span class="eyebrow-static">~ </span><span id="typedRole"></span><span class="t-cursor">█</span>
+                </p>
+                <h1 class="hero-name" id="heroName"></h1>
                 <p class="hero-desc">
                     I create at the intersection of art, design, and code — from
                     low-level systems to expressive interfaces, with a creative
@@ -82,16 +111,8 @@
                         <span class="t-dot t-green"></span>
                         <span class="t-title">aayu.js</span>
                     </div>
-                    <div class="terminal-body">
-                        <div class="t-line"><span class="t-kw">const</span> <span class="t-var">aayu</span> <span class="t-op">=</span> <span class="t-bracket">{</span></div>
-                        <div class="t-line t-indent"><span class="t-key">role</span><span class="t-op">:</span> <span class="t-str">"artist &amp; dev"</span><span class="t-op">,</span></div>
-                        <div class="t-line t-indent"><span class="t-key">stack</span><span class="t-op">:</span> <span class="t-bracket">[</span><span class="t-str">"JS"</span><span class="t-op">,</span> <span class="t-str">"C++"</span><span class="t-op">,</span> <span class="t-str">"Lua"</span><span class="t-bracket">]</span><span class="t-op">,</span></div>
-                        <div class="t-line t-indent"><span class="t-key">loves</span><span class="t-op">:</span> <span class="t-bracket">[</span><span class="t-str">"art"</span><span class="t-op">,</span> <span class="t-str">"linux"</span><span class="t-op">,</span> <span class="t-str">"ui"</span><span class="t-bracket">]</span><span class="t-op">,</span></div>
-                        <div class="t-line t-indent"><span class="t-key">available</span><span class="t-op">:</span> <span class="t-bool">true</span></div>
-                        <div class="t-line"><span class="t-bracket">}</span><span class="t-op">;</span></div>
-                        <div class="t-line t-gap"><span class="t-comment">// currently running on</span></div>
-                        <div class="t-line"><span class="t-fn">console</span><span class="t-op">.</span><span class="t-fn">log</span><span class="t-bracket">(</span><span class="t-str">"Linux 🐧"</span><span class="t-bracket">)</span><span class="t-op">;</span></div>
-                        <div class="t-line t-output"><span class="t-prompt">▶</span> <span id="termOutput">Linux 🐧</span><span class="t-cursor">█</span></div>
+                    <div class="terminal-body" id="terminalBody">
+                        <!-- lines typed in by JS -->
                     </div>
                 </div>
                 <div class="hero-scroll">Scroll to explore</div>
@@ -102,92 +123,270 @@
             <div class="section-label reveal">About</div>
             <div class="about">
                 <div class="about-left reveal">
-                    <h2 class="about-title">Art, code &<br /><em>everything</em><br />between.</h2>
+                    <h2 class="about-title">
+                        Art, code &<br /><em>everything</em><br />between.
+                    </h2>
                 </div>
                 <div class="about-right">
                     <p class="about-body reveal">
-                        I'm a multidisciplinary artist, designer, and developer — someone who moves fluidly between a sketchbook and a terminal. My work spans visual art, interface design, and software engineering, driven by a belief that creativity and technical rigor belong together.
+                        I'm a multidisciplinary artist, designer, and developer
+                        — someone who moves fluidly between a sketchbook and a
+                        terminal. My work spans visual art, interface design,
+                        and software engineering, driven by a belief that
+                        creativity and technical rigor belong together.
                     </p>
                     <p class="about-body reveal" style="transition-delay: 0.1s">
-                        On the technical side, I'm fluent in JavaScript, C++, Lua, and Java, and deeply comfortable on Linux. I'm drawn to projects that live at the edges — game engines, creative tools, expressive UIs, and systems that feel alive.
+                        On the technical side, I'm fluent in JavaScript, C++,
+                        Lua, Python, Java, and deeply comfortable on Linux. I'm
+                        drawn to projects that live at the edges — game engines,
+                        creative tools, expressive UIs, and systems that feel
+                        alive.
                     </p>
-                    <div class="about-stats reveal" style="transition-delay: 0.2s">
-                        <div><div class="stat-num">3</div><div class="stat-label">Disciplines</div></div>
-                        <div><div class="stat-num">5</div><div class="stat-label">Languages</div></div>
-                        <div><div class="stat-num">&#8734;</div><div class="stat-label">Curiosity</div></div>
+                    <div
+                        class="about-stats reveal"
+                        style="transition-delay: 0.2s"
+                    >
+                        <div>
+                            <div class="stat-num" data-count="3">3</div>
+                            <div class="stat-label">Disciplines</div>
+                        </div>
+                        <div>
+                            <div class="stat-num" data-count="5">5</div>
+                            <div class="stat-label">Languages</div>
+                        </div>
+                        <div>
+                            <div class="stat-num">&#8734;</div>
+                            <div class="stat-label">Curiosity</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="skills">
-            <div class="section-label reveal">Expertise</div>
+            <div class="section-label reveal">Skills</div>
             <div class="skills-grid reveal">
                 <div class="skill-item">
-                    <i class="devicon-javascript-plain skill-icon" aria-hidden="true"></i>
+                    <i
+                        class="devicon-javascript-plain skill-icon"
+                        aria-hidden="true"
+                    ></i>
                     <div class="skill-cat">Language</div>
                     <div class="skill-name">JavaScript<br />/ Web</div>
                 </div>
                 <div class="skill-item">
-                    <i class="devicon-cplusplus-plain skill-icon" aria-hidden="true"></i>
+                    <i
+                        class="devicon-cplusplus-plain skill-icon"
+                        aria-hidden="true"
+                    ></i>
                     <div class="skill-cat">Language</div>
                     <div class="skill-name">C++<br />/ Systems</div>
                 </div>
                 <div class="skill-item">
-                    <i class="devicon-lua-plain skill-icon" aria-hidden="true"></i>
+                    <i
+                        class="devicon-lua-plain skill-icon"
+                        aria-hidden="true"
+                    ></i>
                     <div class="skill-cat">Language</div>
                     <div class="skill-name">Lua<br />/ Scripting</div>
                 </div>
                 <div class="skill-item">
-                    <i class="devicon-java-plain skill-icon" aria-hidden="true"></i>
+                    <i
+                        class="devicon-java-plain skill-icon"
+                        aria-hidden="true"
+                    ></i>
                     <div class="skill-cat">Language</div>
                     <div class="skill-name">Java<br />/ Backend</div>
                 </div>
                 <div class="skill-item">
-                    <i class="devicon-bash-plain skill-icon" aria-hidden="true"></i>
+                    <i
+                        class="devicon-bash-plain skill-icon"
+                        aria-hidden="true"
+                    ></i>
                     <div class="skill-cat">Environment</div>
                     <div class="skill-name">Linux<br />/ Open Source</div>
                 </div>
                 <div class="skill-item">
-                    <i class="devicon-figma-plain skill-icon" aria-hidden="true"></i>
+                    <i
+                        class="devicon-figma-plain skill-icon"
+                        aria-hidden="true"
+                    ></i>
                     <div class="skill-cat">Creative</div>
-                    <div class="skill-name">Visual<br />Art &amp; Design</div>
+                    <div class="skill-name">Digital<br />Art &amp; Design</div>
                 </div>
                 <div class="skill-item">
-                    <i class="devicon-sketch-plain skill-icon" aria-hidden="true"></i>
+                    <i
+                        class="devicon-sketch-plain skill-icon"
+                        aria-hidden="true"
+                    ></i>
                     <div class="skill-cat">Creative</div>
                     <div class="skill-name">UI / UX<br />Design</div>
                 </div>
                 <div class="skill-item">
-                    <i class="devicon-aftereffects-plain skill-icon" aria-hidden="true"></i>
+                    <i
+                        class="devicon-aftereffects-plain skill-icon"
+                        aria-hidden="true"
+                    ></i>
                     <div class="skill-cat">Creative</div>
-                    <div class="skill-name">Motion &amp;<br />Interaction</div>
+                    <div class="skill-name">Hand Drawn <br />Animation</div>
                 </div>
             </div>
         </section>
 
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="projects">
+            <div class="section-label reveal">Projects</div>
+            <div class="projects-grid">
+                <article class="project-card reveal">
+                    <div class="project-header">
+                        <div>
+                            <span class="project-num">01</span>
+                            <h3 class="project-title">Voxel Engine</h3>
+                        </div>
+                        <a
+                            href="#"
+                            class="project-link"
+                            aria-label="View Voxel Engine"
+                            >↗</a
+                        >
+                    </div>
+                    <p class="project-desc">
+                        A lightweight voxel renderer written in C++ with custom
+                        memory pooling and chunk-based LOD system.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">OpenGL</span>
+                        <span class="tag">Linux</span>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-header">
+                        <div>
+                            <span class="project-num">02</span>
+                            <h3 class="project-title">Neon UI Kit</h3>
+                        </div>
+                        <a
+                            href="#"
+                            class="project-link"
+                            aria-label="View Neon UI Kit"
+                            >↗</a
+                        >
+                    </div>
+                    <p class="project-desc">
+                        A dark-mode focused component library built with vanilla
+                        JS & CSS variables, featuring smooth transitions and
+                        accessible controls.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-header">
+                        <div>
+                            <span class="project-num">03</span>
+                            <h3 class="project-title">Dotfile Manager</h3>
+                        </div>
+                        <a
+                            href="#"
+                            class="project-link"
+                            aria-label="View Dotfile Manager"
+                            >↗</a
+                        >
+                    </div>
+                    <p class="project-desc">
+                        Automated Linux environment sync tool written in Lua,
+                        managing configs, aliases, and system hooks across
+                        devices.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Lua</span>
+                        <span class="tag">Shell</span>
+                        <span class="tag">Neovim</span>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="project-header">
+                        <div>
+                            <span class="project-num">04</span>
+                            <h3 class="project-title">Pixel Canvas</h3>
+                        </div>
+                        <a
+                            href="#"
+                            class="project-link"
+                            aria-label="View Pixel Canvas"
+                            >↗</a
+                        >
+                    </div>
+                    <p class="project-desc">
+                        Browser-based generative art tool with layer support,
+                        custom brushes, and WebAssembly performance
+                        optimizations.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Rust</span>
+                        <span class="tag">WebAssembly</span>
+                        <span class="tag">Canvas API</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <section class="contact" id="contact">
-            <p class="contact-tagline reveal">Got something<br /><em>interesting? Let's build it.</em></p>
-            <div class="reveal" style="transition-delay: 0.3s">
-                <a class="contact-link" href="mailto:itsaayush.m@gmail.com">Send a message</a>
-                <a class="contact-link" href="https://github.com/aayu-me" target="_blank" rel="noopener noreferrer">
-                    <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-                    </svg>GitHub
+            <p class="contact-tagline reveal">
+                Got something<br /><em>interesting? Let's build it.</em>
+            </p>
+            <div class="reveal contact-links" style="transition-delay: 0.3s">
+                <a class="contact-link" href="/cdn-cgi/l/email-protection#ef869b9c8e8e969a9c87c182af88828e8683c18c8082">Send a message</a
+                >
+                <a
+                    class="contact-link"
+                    href="https://github.com/aayu-me"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <svg
+                        class="contact-icon"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+                        /></svg
+                    >GitHub
                 </a>
-                <a class="contact-link" href="https://www.instagram.com/m__aayu__/" target="_blank" rel="noopener noreferrer">
-                    <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                    </svg>Instagram
+                <a
+                    class="contact-link"
+                    href="https://www.instagram.com/m__aayu__/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <svg
+                        class="contact-icon"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+                        /></svg
+                    >Instagram
                 </a>
             </div>
         </section>
 
         <footer>
             <p>&#169; 2026 &#8212; Artist, Designer &amp; Developer</p>
-            <p>Built by me ~/aayu</p>
+            <p>Built by me ~/aayu/</p>
         </footer>
 
-        <script src="script.js"></script>
+        <script defer src="script.js"></script>
     </body>
 </html>
