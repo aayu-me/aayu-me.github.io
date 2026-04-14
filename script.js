@@ -88,11 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typedRoleEl) {
     const roles = [
       "artist & developer",
-      "systems programmer",
+      "software developer",
+      "animator",
       "ui/ux designer",
       "digital artist",
-      "open source tinkerer",
-      "neovim enthusiast",
+      "linux enthusiast",
     ];
     setTimeout(
       () => typeRotatingRoles(typedRoleEl, roles),
