@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ── Utility (defined first — used by async functions below) ──
+  function sleep(ms) {
+    return new Promise((r) => setTimeout(r, ms));
+  }
+
   // ── Reduced motion preference ──
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
@@ -15,14 +20,80 @@ document.addEventListener("DOMContentLoaded", () => {
   html.setAttribute("data-theme", saved);
   if (saved === "dark" && toggle) toggle.checked = true;
 
-  if (toggle) {
-    toggle.addEventListener("change", () => {
-      const next = toggle.checked ? "dark" : "light";
-      html.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
+  function applyTheme(theme) {
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    // Keep meta theme-color in sync for mobile browsers
+    document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
+      const media = meta.getAttribute("media") || "";
+      if (theme === "dark" && media.includes("dark"))
+        meta.setAttribute("content", "#070c16");
+      else if (theme === "light" && media.includes("light"))
+        meta.setAttribute("content", "#f2f0eb");
     });
   }
 
+  if (toggle) {
+    toggle.addEventListener("change", () => {
+      applyTheme(toggle.checked ? "dark" : "light");
+    });
+  }
+  // ════════════════════════════════════════════
+  // ── SIDE NAVIGATION ──
+  // ════════════════════════════════════════════
+  const sideNavItems = document.querySelectorAll(".side-nav-item");
+  const sections = document.querySelectorAll("section[id]");
+
+  // Smooth scroll to section on click
+  sideNavItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = item.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+
+  // Update active item using IntersectionObserver
+  function updateSideNav() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            sideNavItems.forEach((item) => {
+              item.classList.toggle(
+                "active",
+                item.getAttribute("data-section") === id,
+              );
+            });
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
+    );
+    sections.forEach((s) => observer.observe(s));
+  }
+  updateSideNav();
+
+  // Set initial active state on load
+  (function setInitialActive() {
+    let found = "";
+    sections.forEach((section) => {
+      if (window.scrollY >= section.offsetTop - window.innerHeight / 3) {
+        found = section.getAttribute("id");
+      }
+    });
+    sideNavItems.forEach((item) => {
+      item.classList.toggle("active", item.getAttribute("data-section") === found);
+    });
+  })();
   // ════════════════════════════════════════════
   // ── TYPING ENGINE ──
   // ════════════════════════════════════════════
@@ -88,11 +159,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typedRoleEl) {
     const roles = [
       "artist & developer",
-      "software developer",
-      "animator",
+      "systems programmer",
       "ui/ux designer",
       "digital artist",
-      "linux enthusiast",
+      "open source tinkerer",
+      "neovim enthusiast",
     ];
     setTimeout(
       () => typeRotatingRoles(typedRoleEl, roles),
@@ -373,15 +444,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Tilt cards
     if (!prefersReducedMotion) {
       document.querySelectorAll(".skill-item, .project-card").forEach((el) => {
+        const isProject = el.classList.contains("project-card");
         el.addEventListener("mousemove", (e) => {
           const rect = el.getBoundingClientRect();
           const x = (e.clientX - rect.left) / rect.width - 0.5;
           const y = (e.clientY - rect.top) / rect.height - 0.5;
-          el.style.transform = `perspective(600px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg) scale(1.03)`;
+          // Project cards: keep the CSS lift (-6px) + add tilt
+          const liftY = isProject ? -6 : 0;
+          el.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(${liftY}px) scale(${isProject ? 1.01 : 1.03})`;
         });
         el.addEventListener("mouseleave", () => {
-          el.style.transform =
-            "perspective(600px) rotateY(0) rotateX(0) scale(1)";
+          el.style.transform = isProject
+            ? "perspective(600px) rotateY(0) rotateX(0) translateY(0) scale(1)"
+            : "perspective(600px) rotateY(0) rotateX(0) scale(1)";
           el.style.transition = "transform 0.6s cubic-bezier(0.23,1,0.32,1)";
         });
         el.addEventListener("mouseenter", () => {
@@ -424,10 +499,13 @@ document.addEventListener("DOMContentLoaded", () => {
               const target = parseInt(el.dataset.count, 10);
               const duration = 900;
               const start = performance.now();
+              // Wrap text in a span to preserve gradient background-clip
+              el.innerHTML = `<span class="stat-count-val">0</span>`;
+              const span = el.querySelector(".stat-count-val");
               function tick(now) {
                 const progress = Math.min((now - start) / duration, 1);
                 const eased = 1 - Math.pow(1 - progress, 3);
-                el.textContent = Math.round(eased * target);
+                span.textContent = Math.round(eased * target);
                 if (progress < 1) requestAnimationFrame(tick);
               }
               requestAnimationFrame(tick);
@@ -452,7 +530,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.08, rootMargin: "0px 0px -30px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -30px 0px" },
     );
     document.querySelectorAll(".skill-item").forEach((el, i) => {
       el.style.opacity = "0";
@@ -471,38 +549,54 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileNav = document.getElementById("mobileNav");
 
   if (hamburger && mobileNav) {
+    function closeMobileNav() {
+      hamburger.classList.remove("open");
+      mobileNav.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+      mobileNav.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
     hamburger.addEventListener("click", () => {
       const isOpen = hamburger.classList.toggle("open");
       mobileNav.classList.toggle("open", isOpen);
       hamburger.setAttribute("aria-expanded", isOpen);
       mobileNav.setAttribute("aria-hidden", !isOpen);
       document.body.style.overflow = isOpen ? "hidden" : "";
+      // Move focus into menu when opened
+      if (isOpen) {
+        const firstLink = mobileNav.querySelector("a");
+        if (firstLink) firstLink.focus();
+      }
     });
 
     mobileNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        hamburger.classList.remove("open");
-        mobileNav.classList.remove("open");
-        hamburger.setAttribute("aria-expanded", "false");
-        mobileNav.setAttribute("aria-hidden", "true");
-        document.body.style.overflow = "";
-      });
+      link.addEventListener("click", closeMobileNav);
+    });
+
+    // Focus trap inside mobile nav
+    mobileNav.addEventListener("keydown", (e) => {
+      if (!mobileNav.classList.contains("open")) return;
+      const focusable = [...mobileNav.querySelectorAll("a")];
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.key === "Tab") {
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     });
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && hamburger.classList.contains("open")) {
-        hamburger.classList.remove("open");
-        mobileNav.classList.remove("open");
-        hamburger.setAttribute("aria-expanded", "false");
-        mobileNav.setAttribute("aria-hidden", "true");
-        document.body.style.overflow = "";
+        closeMobileNav();
         hamburger.focus();
       }
     });
   }
 
-  // ── Utility ──
-  function sleep(ms) {
-    return new Promise((r) => setTimeout(r, ms));
-  }
 });

@@ -3,7 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="aayu — multidisciplinary artist, designer and developer. Art, code, and everything between." />
+        <meta
+            name="description"
+            content="aayu — multidisciplinary artist, designer and developer. Art, code, and everything between."
+        />
         <title>aayu — Artist, Designer & Developer</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,6 +20,8 @@
             href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
 
+        <meta name="theme-color" content="#f2f0eb" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)" />
         <link rel="stylesheet" href="style.css" />
 
         <script>
@@ -27,6 +32,7 @@
         </script>
     </head>
     <body>
+        <a href="#about" class="skip-link">Skip to content</a>
         <div id="scrollProgress"></div>
         <canvas id="inkCanvas"></canvas>
         <div class="cursor" id="cursor"></div>
@@ -90,11 +96,31 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
+        <!-- Side Navigation -->
+        <nav class="side-nav" aria-label="Section navigation">
+            <a href="#about" class="side-nav-item" data-section="about">
+                <span class="side-nav-line"></span>
+                <span class="side-nav-label">About</span>
+            </a>
+            <a href="#skills" class="side-nav-item" data-section="skills">
+                <span class="side-nav-line"></span>
+                <span class="side-nav-label">Skills</span>
+            </a>
+            <a href="#projects" class="side-nav-item" data-section="projects">
+                <span class="side-nav-line"></span>
+                <span class="side-nav-label">Projects</span>
+            </a>
+            <a href="#contact" class="side-nav-item" data-section="contact">
+                <span class="side-nav-line"></span>
+                <span class="side-nav-label">Contact</span>
+            </a>
+        </nav>
 
         <section class="hero" id="home">
             <div class="hero-left">
                 <p class="hero-eyebrow">
-                    <span class="eyebrow-static">~ </span><span id="typedRole"></span><span class="t-cursor">█</span>
+                    <span class="eyebrow-static">~ </span
+                    ><span id="typedRole"></span><span class="t-cursor">█</span>
                 </p>
                 <h1 class="hero-name" id="heroName"></h1>
                 <p class="hero-desc">
@@ -343,7 +369,10 @@
                 Got something<br /><em>interesting? Let's build it.</em>
             </p>
             <div class="reveal contact-links" style="transition-delay: 0.3s">
-                <a class="contact-link" href="/cdn-cgi/l/email-protection#ef869b9c8e8e969a9c87c182af88828e8683c18c8082">Send a message</a
+                <a
+                    class="contact-link"
+                    href="mailto:hello@aayu.me"
+                    >Send a message</a
                 >
                 <a
                     class="contact-link"
