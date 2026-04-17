@@ -20,8 +20,16 @@
             href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
 
-        <meta name="theme-color" content="#f2f0eb" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)" />
+        <meta
+            name="theme-color"
+            content="#f2f0eb"
+            media="(prefers-color-scheme: light)"
+        />
+        <meta
+            name="theme-color"
+            content="#070c16"
+            media="(prefers-color-scheme: dark)"
+        />
         <link rel="stylesheet" href="style.css" />
 
         <script>
@@ -32,7 +40,6 @@
         </script>
     </head>
     <body>
-        <a href="#about" class="skip-link">Skip to content</a>
         <div id="scrollProgress"></div>
         <canvas id="inkCanvas"></canvas>
         <div class="cursor" id="cursor"></div>
@@ -42,9 +49,9 @@
             <div class="nav-logo">~/aayu/Portfolio/</div>
             <div class="nav-right">
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#art">Art</a></li>
+                    <li><a href="#programming">Programming</a></li>
+                    <li><a href="#design">Design</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <label class="theme-toggle" title="Toggle dark mode">
@@ -90,25 +97,30 @@
 
         <div class="mobile-nav" id="mobileNav" aria-hidden="true">
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#art">Art</a></li>
+                <li><a href="#programming">ProgrammingS</a></li>
+                <li><a href="#design">Design</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
+
         <!-- Side Navigation -->
         <nav class="side-nav" aria-label="Section navigation">
-            <a href="#about" class="side-nav-item" data-section="about">
+            <a href="#art" class="side-nav-item" data-section="art">
                 <span class="side-nav-line"></span>
-                <span class="side-nav-label">About</span>
+                <span class="side-nav-label">Art</span>
             </a>
-            <a href="#skills" class="side-nav-item" data-section="skills">
+            <a
+                href="#programming"
+                class="side-nav-item"
+                data-section="programming"
+            >
                 <span class="side-nav-line"></span>
-                <span class="side-nav-label">Skills</span>
+                <span class="side-nav-label">ProgrammingS</span>
             </a>
-            <a href="#projects" class="side-nav-item" data-section="projects">
+            <a href="#design" class="side-nav-item" data-section="design">
                 <span class="side-nav-line"></span>
-                <span class="side-nav-label">Projects</span>
+                <span class="side-nav-label">Design</span>
             </a>
             <a href="#contact" class="side-nav-item" data-section="contact">
                 <span class="side-nav-line"></span>
@@ -116,6 +128,9 @@
             </a>
         </nav>
 
+        <!-- ══════════════════════════════════════
+             HERO
+        ══════════════════════════════════════ -->
         <section class="hero" id="home">
             <div class="hero-left">
                 <p class="hero-eyebrow">
@@ -128,6 +143,20 @@
                     low-level systems to expressive interfaces, with a creative
                     eye and technical depth.
                 </p>
+                <div class="hero-disciplines">
+                    <a href="#art" class="discipline-pill discipline-art">
+                        <span class="pill-icon">✦</span> Art
+                    </a>
+                    <a
+                        href="#programming"
+                        class="discipline-pill discipline-code"
+                    >
+                        <span class="pill-icon">&lt;/&gt;</span> Code
+                    </a>
+                    <a href="#design" class="discipline-pill discipline-design">
+                        <span class="pill-icon">◈</span> Design
+                    </a>
+                </div>
             </div>
             <div class="hero-right">
                 <div class="hero-terminal" aria-hidden="true">
@@ -137,243 +166,507 @@
                         <span class="t-dot t-green"></span>
                         <span class="t-title">aayu.js</span>
                     </div>
-                    <div class="terminal-body" id="terminalBody">
-                        <!-- lines typed in by JS -->
-                    </div>
+                    <div class="terminal-body" id="terminalBody"></div>
                 </div>
                 <div class="hero-scroll">Scroll to explore</div>
             </div>
         </section>
 
-        <section id="about">
-            <div class="section-label reveal">About</div>
-            <div class="about">
-                <div class="about-left reveal">
-                    <h2 class="about-title">
-                        Art, code &<br /><em>everything</em><br />between.
+        <!-- ══════════════════════════════════════
+             ART SECTION
+        ══════════════════════════════════════ -->
+        <section id="art" class="discipline-section discipline-art-section">
+            <div class="section-label reveal">Art</div>
+            <div class="discipline-hero">
+                <div class="discipline-intro reveal">
+                    <div class="discipline-tag">✦ Creative Practice</div>
+                    <h2 class="discipline-title">
+                        Drawing from<br /><em>imagination</em><br />into
+                        reality.
                     </h2>
+                    <p class="discipline-desc">
+                        Art is where everything begins for me. Before a line of
+                        code, before a wireframe — there's a sketchbook. I work
+                        in hand-drawn illustration, digital painting, and
+                        frame-by-frame animation. My style blends expressive
+                        linework with deliberate color — emotional, rough around
+                        the edges, and very much alive.
+                    </p>
                 </div>
-                <div class="about-right">
-                    <p class="about-body reveal">
-                        I'm a multidisciplinary artist, designer, and developer
-                        — someone who moves fluidly between a sketchbook and a
-                        terminal. My work spans visual art, interface design,
-                        and software engineering, driven by a belief that
-                        creativity and technical rigor belong together.
+                <div
+                    class="discipline-skills-column reveal"
+                    style="transition-delay: 0.15s"
+                >
+                    <div class="discipline-skills-label">Tools & Media</div>
+                    <div class="discipline-skill-list">
+                        <div class="discipline-skill-row">
+                            <i
+                                class="devicon-aftereffects-plain"
+                                aria-hidden="true"
+                            ></i>
+                            <div>
+                                <div class="ds-name">Hand-Drawn Animation</div>
+                                <div class="ds-sub">Frame by frame,</div>
+                            </div>
+                        </div>
+                        <div class="discipline-skill-row">
+                            <span class="ds-emoji-icon">🎨</span>
+                            <div>
+                                <div class="ds-name">Digital Illustration</div>
+                                <div class="ds-sub">
+                                    Procreate, Clip Studio Paint
+                                </div>
+                            </div>
+                        </div>
+                        <div class="discipline-skill-row">
+                            <span class="ds-emoji-icon">✏️</span>
+                            <div>
+                                <div class="ds-name">Pencil & Ink</div>
+                                <div class="ds-sub">
+                                    Traditional sketchbook work
+                                </div>
+                            </div>
+                        </div>
+                        <div class="discipline-skill-row">
+                            <span class="ds-emoji-icon">🌌</span>
+                            <div>
+                                <div class="ds-name">Generative Art</div>
+                                <div class="ds-sub">
+                                    Canvas API, creative coding
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Art Projects Showcase -->
+            <div class="discipline-projects-label reveal">Art Projects</div>
+            <div class="discipline-projects-grid">
+                <article class="discipline-project-card art-card reveal">
+                    <div class="dpc-accent"></div>
+                    <div class="dpc-thumb"></div>
+                    <div class="dpc-num">01</div>
+                    <h3 class="dpc-title">Sketchbook Archive</h3>
+                    <p class="dpc-desc">
+                        An ongoing collection of traditional ink and pencil
+                        illustrations — character studies, environments, and
+                        loose expressive drawings from the sketchbook.
                     </p>
-                    <p class="about-body reveal" style="transition-delay: 0.1s">
-                        On the technical side, I'm fluent in JavaScript, C++,
-                        Lua, Python, Java, and deeply comfortable on Linux. I'm
-                        drawn to projects that live at the edges — game engines,
-                        creative tools, expressive UIs, and systems that feel
-                        alive.
-                    </p>
-                    <div
-                        class="about-stats reveal"
-                        style="transition-delay: 0.2s"
+                    <div class="dpc-tags">
+                        <span class="tag">Illustration</span
+                        ><span class="tag">Ink</span
+                        ><span class="tag">Traditional</span>
+                    </div>
+                    <a
+                        href="#"
+                        class="dpc-link"
+                        aria-label="View project"
+                        title="Coming soon"
+                        >↗</a
                     >
-                        <div>
-                            <div class="stat-num" data-count="3">3</div>
-                            <div class="stat-label">Disciplines</div>
+                </article>
+                <article
+                    class="discipline-project-card art-card reveal"
+                    style="transition-delay: 0.1s"
+                >
+                    <div class="dpc-accent"></div>
+                    <div class="dpc-thumb"></div>
+                    <div class="dpc-num">02</div>
+                    <h3 class="dpc-title">Frame Loop</h3>
+                    <p class="dpc-desc">
+                        A personal series of hand-drawn looping animations
+                        exploring motion, rhythm, and texture in a 2D
+                        frame-by-frame workflow.
+                    </p>
+                    <div class="dpc-tags">
+                        <span class="tag">Traditional</span
+                        ><span class="tag">Animation</span>
+                    </div>
+                    <a
+                        href="#"
+                        class="dpc-link"
+                        aria-label="View project"
+                        title="Coming soon"
+                        >↗</a
+                    >
+                </article>
+                <article
+                    class="discipline-project-card art-card reveal"
+                    style="transition-delay: 0.2s"
+                >
+                    <div class="dpc-accent"></div>
+                    <div class="dpc-thumb"></div>
+                    <div class="dpc-num">03</div>
+                    <h3 class="dpc-title">Ink & Noise</h3>
+                    <p class="dpc-desc">
+                        A generative art study combining Perlin noise fields
+                        with ink-pen aesthetics, rendered in real-time on
+                        canvas.
+                    </p>
+                    <div class="dpc-tags">
+                        <span class="tag">JavaScript</span
+                        ><span class="tag">Canvas</span
+                        ><span class="tag">Generative</span>
+                    </div>
+                    <a
+                        href="#"
+                        class="dpc-link"
+                        aria-label="View project"
+                        title="Coming soon"
+                        >↗</a
+                    >
+                </article>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+             PROGRAMMING SECTION
+        ══════════════════════════════════════ -->
+        <section
+            id="programming"
+            class="discipline-section discipline-code-section"
+        >
+            <div class="section-label reveal">Programming</div>
+            <div class="discipline-hero">
+                <div class="discipline-intro reveal">
+                    <div class="discipline-tag">
+                        &lt;/&gt; Systems & Software
+                    </div>
+                    <h2 class="discipline-title">
+                        Building things<br /><em>at the metal,</em><br />up to
+                        the cloud.
+                    </h2>
+                    <p class="discipline-desc">
+                        Programming for me isn't just a means to an end — it's a
+                        craft. I work closest to the machine in C++ and Lua, but
+                        I'm equally comfortable shipping full-stack web apps. I
+                        love systems that are elegant, fast, and maintainable.
+                        Linux is home. Neovim is the weapon.
+                    </p>
+                </div>
+                <div
+                    class="discipline-skills-column reveal"
+                    style="transition-delay: 0.15s"
+                >
+                    <div class="discipline-skills-label">
+                        Stack & Environment
+                    </div>
+                    <div class="discipline-skill-list">
+                        <div class="discipline-skill-row">
+                            <i
+                                class="devicon-javascript-plain"
+                                aria-hidden="true"
+                            ></i>
+                            <div>
+                                <div class="ds-name">JavaScript / Web</div>
+                                <div class="ds-sub">Node, React, vanilla</div>
+                            </div>
                         </div>
-                        <div>
-                            <div class="stat-num" data-count="5">5</div>
-                            <div class="stat-label">Languages</div>
+                        <div class="discipline-skill-row">
+                            <i
+                                class="devicon-cplusplus-plain"
+                                aria-hidden="true"
+                            ></i>
+                            <div>
+                                <div class="ds-name">C++ / Systems</div>
+                                <div class="ds-sub">
+                                    Graphics, engines, low-level
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <div class="stat-num">&#8734;</div>
-                            <div class="stat-label">Curiosity</div>
+                        <div class="discipline-skill-row">
+                            <i class="devicon-lua-plain" aria-hidden="true"></i>
+                            <div>
+                                <div class="ds-name">Lua / Scripting</div>
+                                <div class="ds-sub">
+                                    Neovim plugins, game scripting
+                                </div>
+                            </div>
+                        </div>
+                        <div class="discipline-skill-row">
+                            <i
+                                class="devicon-java-plain"
+                                aria-hidden="true"
+                            ></i>
+                            <div>
+                                <div class="ds-name">Java / Backend</div>
+                                <div class="ds-sub">APIs, data processing</div>
+                            </div>
+                        </div>
+                        <div class="discipline-skill-row">
+                            <i
+                                class="devicon-bash-plain"
+                                aria-hidden="true"
+                            ></i>
+                            <div>
+                                <div class="ds-name">Linux / Open Source</div>
+                                <div class="ds-sub">Arch, shell, dotfiles</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section id="skills">
-            <div class="section-label reveal">Skills</div>
-            <div class="skills-grid reveal">
-                <div class="skill-item">
-                    <i
-                        class="devicon-javascript-plain skill-icon"
-                        aria-hidden="true"
-                    ></i>
-                    <div class="skill-cat">Language</div>
-                    <div class="skill-name">JavaScript<br />/ Web</div>
-                </div>
-                <div class="skill-item">
-                    <i
-                        class="devicon-cplusplus-plain skill-icon"
-                        aria-hidden="true"
-                    ></i>
-                    <div class="skill-cat">Language</div>
-                    <div class="skill-name">C++<br />/ Systems</div>
-                </div>
-                <div class="skill-item">
-                    <i
-                        class="devicon-lua-plain skill-icon"
-                        aria-hidden="true"
-                    ></i>
-                    <div class="skill-cat">Language</div>
-                    <div class="skill-name">Lua<br />/ Scripting</div>
-                </div>
-                <div class="skill-item">
-                    <i
-                        class="devicon-java-plain skill-icon"
-                        aria-hidden="true"
-                    ></i>
-                    <div class="skill-cat">Language</div>
-                    <div class="skill-name">Java<br />/ Backend</div>
-                </div>
-                <div class="skill-item">
-                    <i
-                        class="devicon-bash-plain skill-icon"
-                        aria-hidden="true"
-                    ></i>
-                    <div class="skill-cat">Environment</div>
-                    <div class="skill-name">Linux<br />/ Open Source</div>
-                </div>
-                <div class="skill-item">
-                    <i
-                        class="devicon-figma-plain skill-icon"
-                        aria-hidden="true"
-                    ></i>
-                    <div class="skill-cat">Creative</div>
-                    <div class="skill-name">Digital<br />Art &amp; Design</div>
-                </div>
-                <div class="skill-item">
-                    <i
-                        class="devicon-sketch-plain skill-icon"
-                        aria-hidden="true"
-                    ></i>
-                    <div class="skill-cat">Creative</div>
-                    <div class="skill-name">UI / UX<br />Design</div>
-                </div>
-                <div class="skill-item">
-                    <i
-                        class="devicon-aftereffects-plain skill-icon"
-                        aria-hidden="true"
-                    ></i>
-                    <div class="skill-cat">Creative</div>
-                    <div class="skill-name">Hand Drawn <br />Animation</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS SECTION -->
-        <section id="projects" class="projects">
-            <div class="section-label reveal">Projects</div>
-            <div class="projects-grid">
-                <article class="project-card reveal">
-                    <div class="project-header">
-                        <div>
-                            <span class="project-num">01</span>
-                            <h3 class="project-title">Voxel Engine</h3>
-                        </div>
-                        <a
-                            href="#"
-                            class="project-link"
-                            aria-label="View Voxel Engine"
-                            >↗</a
-                        >
-                    </div>
-                    <p class="project-desc">
+            <!-- Code Projects Showcase -->
+            <div class="discipline-projects-label reveal">Code Projects</div>
+            <div class="discipline-projects-grid">
+                <article class="discipline-project-card code-card reveal">
+                    <div class="dpc-accent"></div>
+                    <div class="dpc-thumb"></div>
+                    <div class="dpc-num">01</div>
+                    <h3 class="dpc-title">Voxel Engine</h3>
+                    <p class="dpc-desc">
                         A lightweight voxel renderer written in C++ with custom
                         memory pooling and chunk-based LOD system.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">OpenGL</span>
-                        <span class="tag">Linux</span>
+                    <div class="dpc-tags">
+                        <span class="tag">C++</span
+                        ><span class="tag">OpenGL</span
+                        ><span class="tag">Linux</span>
                     </div>
+                    <a
+                        href="#"
+                        class="dpc-link"
+                        aria-label="View project"
+                        title="Coming soon"
+                        >↗</a
+                    >
                 </article>
-
-                <article class="project-card reveal">
-                    <div class="project-header">
-                        <div>
-                            <span class="project-num">02</span>
-                            <h3 class="project-title">Neon UI Kit</h3>
-                        </div>
-                        <a
-                            href="#"
-                            class="project-link"
-                            aria-label="View Neon UI Kit"
-                            >↗</a
-                        >
+                <article
+                    class="discipline-project-card code-card reveal"
+                    style="transition-delay: 0.1s"
+                >
+                    <div class="dpc-accent"></div>
+                    <div class="dpc-thumb"></div>
+                    <div class="dpc-num">02</div>
+                    <h3 class="dpc-title">Pixel Canvas</h3>
+                    <p class="dpc-desc">
+                        Browser-based generative art tool with layer support,
+                        custom brushes, and WebAssembly performance
+                        optimizations — built for creative coding.
+                    </p>
+                    <div class="dpc-tags">
+                        <span class="tag">Rust</span
+                        ><span class="tag">WebAssembly</span
+                        ><span class="tag">Canvas API</span>
                     </div>
-                    <p class="project-desc">
+                    <a
+                        href="#"
+                        class="dpc-link"
+                        aria-label="View project"
+                        title="Coming soon"
+                        >↗</a
+                    >
+                </article>
+                <article
+                    class="discipline-project-card code-card reveal"
+                    style="transition-delay: 0.2s"
+                >
+                    <div class="dpc-accent"></div>
+                    <div class="dpc-thumb"></div>
+                    <div class="dpc-num">03</div>
+                    <h3 class="dpc-title">Mini Compiler</h3>
+                    <p class="dpc-desc">
+                        A hand-written lexer, parser, and IR code generator for
+                        a small expression language, written entirely in C.
+                    </p>
+                    <div class="dpc-tags">
+                        <span class="tag">C</span
+                        ><span class="tag">Compilers</span
+                        ><span class="tag">Linux</span>
+                    </div>
+                    <a
+                        href="#"
+                        class="dpc-link"
+                        aria-label="View project"
+                        title="Coming soon"
+                        >↗</a
+                    >
+                </article>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════
+             DESIGN SECTION
+        ══════════════════════════════════════ -->
+        <section
+            id="design"
+            class="discipline-section discipline-design-section"
+        >
+            <div class="section-label reveal">Design</div>
+            <div class="discipline-hero">
+                <div class="discipline-intro reveal">
+                    <div class="discipline-tag">
+                        ◈ Interface & Visual Design
+                    </div>
+                    <h2 class="discipline-title">
+                        Designing for<br /><em>humans,</em><br />pixel by pixel.
+                    </h2>
+                    <p class="discipline-desc">
+                        Good design is invisible. I approach UI/UX as a balance
+                        of clarity, hierarchy, and subtle delight — systems that
+                        feel immediately intuitive. I work in Figma for
+                        structured design systems and explore motion design as a
+                        tool for communication.
+                    </p>
+                </div>
+                <div
+                    class="discipline-skills-column reveal"
+                    style="transition-delay: 0.15s"
+                >
+                    <div class="discipline-skills-label">Tools & Methods</div>
+                    <div class="discipline-skill-list">
+                        <div class="discipline-skill-row">
+                            <i
+                                class="devicon-figma-plain"
+                                aria-hidden="true"
+                            ></i>
+                            <div>
+                                <div class="ds-name">UI / UX Design</div>
+                                <div class="ds-sub">
+                                    Figma, design systems, prototyping
+                                </div>
+                            </div>
+                        </div>
+                        <div class="discipline-skill-row">
+                            <i
+                                class="devicon-sketch-plain"
+                                aria-hidden="true"
+                            ></i>
+                            <div>
+                                <div class="ds-name">Visual Design</div>
+                                <div class="ds-sub">
+                                    Typography, layout, color theory
+                                </div>
+                            </div>
+                        </div>
+                        <div class="discipline-skill-row">
+                            <span class="ds-emoji-icon">🎬</span>
+                            <div>
+                                <div class="ds-name">Motion Design</div>
+                                <div class="ds-sub">
+                                    Micro-interactions, transitions
+                                </div>
+                            </div>
+                        </div>
+                        <div class="discipline-skill-row">
+                            <span class="ds-emoji-icon">📐</span>
+                            <div>
+                                <div class="ds-name">Design Systems</div>
+                                <div class="ds-sub">
+                                    Tokens, components, documentation
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Projects Showcase -->
+            <div class="discipline-projects-label reveal">Design Projects</div>
+            <div class="discipline-projects-grid">
+                <article class="discipline-project-card design-card reveal">
+                    <div class="dpc-accent"></div>
+                    <div class="dpc-thumb"></div>
+                    <div class="dpc-num">01</div>
+                    <h3 class="dpc-title">Neon UI Kit</h3>
+                    <p class="dpc-desc">
                         A dark-mode focused component library built with vanilla
                         JS & CSS variables, featuring smooth transitions and
                         accessible controls.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">UI/UX</span>
+                    <div class="dpc-tags">
+                        <span class="tag">JavaScript</span
+                        ><span class="tag">CSS</span
+                        ><span class="tag">UI/UX</span>
                     </div>
+                    <a
+                        href="#"
+                        class="dpc-link"
+                        aria-label="View project"
+                        title="Coming soon"
+                        >↗</a
+                    >
                 </article>
-
-                <article class="project-card reveal">
-                    <div class="project-header">
-                        <div>
-                            <span class="project-num">03</span>
-                            <h3 class="project-title">Dotfile Manager</h3>
-                        </div>
-                        <a
-                            href="#"
-                            class="project-link"
-                            aria-label="View Dotfile Manager"
-                            >↗</a
-                        >
-                    </div>
-                    <p class="project-desc">
-                        Automated Linux environment sync tool written in Lua,
-                        managing configs, aliases, and system hooks across
-                        devices.
+                <article
+                    class="discipline-project-card design-card reveal"
+                    style="transition-delay: 0.1s"
+                >
+                    <div class="dpc-accent"></div>
+                    <div class="dpc-thumb"></div>
+                    <div class="dpc-num">02</div>
+                    <h3 class="dpc-title">Mono Type System</h3>
+                    <p class="dpc-desc">
+                        A typographic design system exploring monospace fonts in
+                        editorial layouts — built for developer portfolios and
+                        docs.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">Lua</span>
-                        <span class="tag">Shell</span>
-                        <span class="tag">Neovim</span>
+                    <div class="dpc-tags">
+                        <span class="tag">Typography</span
+                        ><span class="tag">CSS</span
+                        ><span class="tag">Design System</span>
                     </div>
+                    <a
+                        href="#"
+                        class="dpc-link"
+                        aria-label="View project"
+                        title="Coming soon"
+                        >↗</a
+                    >
                 </article>
-
-                <article class="project-card reveal">
-                    <div class="project-header">
-                        <div>
-                            <span class="project-num">04</span>
-                            <h3 class="project-title">Pixel Canvas</h3>
-                        </div>
-                        <a
-                            href="#"
-                            class="project-link"
-                            aria-label="View Pixel Canvas"
-                            >↗</a
-                        >
-                    </div>
-                    <p class="project-desc">
-                        Browser-based generative art tool with layer support,
-                        custom brushes, and WebAssembly performance
-                        optimizations.
+                <article
+                    class="discipline-project-card design-card reveal"
+                    style="transition-delay: 0.2s"
+                >
+                    <div class="dpc-accent"></div>
+                    <div class="dpc-thumb"></div>
+                    <div class="dpc-num">03</div>
+                    <h3 class="dpc-title">Motion Tokens</h3>
+                    <p class="dpc-desc">
+                        A motion design reference library with standardized
+                        easing curves, durations, and reusable transition
+                        presets for web UIs.
                     </p>
-                    <div class="project-tags">
-                        <span class="tag">Rust</span>
-                        <span class="tag">WebAssembly</span>
-                        <span class="tag">Canvas API</span>
+                    <div class="dpc-tags">
+                        <span class="tag">Motion</span
+                        ><span class="tag">CSS</span
+                        ><span class="tag">Figma</span>
                     </div>
+                    <a
+                        href="#"
+                        class="dpc-link"
+                        aria-label="View project"
+                        title="Coming soon"
+                        >↗</a
+                    >
                 </article>
             </div>
         </section>
 
+        <!-- ══════════════════════════════════════
+             CONTACT
+        ══════════════════════════════════════ -->
         <section class="contact" id="contact">
             <p class="contact-tagline reveal">
                 Got something<br /><em>interesting? Let's build it.</em>
             </p>
             <div class="reveal contact-links" style="transition-delay: 0.3s">
-                <a
-                    class="contact-link"
-                    href="mailto:hello@aayu.me"
+                <a class="contact-link" href="mailto:hello@aayu.me"
                     >Send a message</a
                 >
+                <a class="contact-link" href="#" title="Resume coming soon">
+                    <svg
+                        class="contact-icon"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"
+                        /></svg
+                    >Résumé
+                </a>
                 <a
                     class="contact-link"
                     href="https://github.com/aayu-me"
@@ -393,6 +686,23 @@
                 </a>
                 <a
                     class="contact-link"
+                    href="https://linkedin.com/in/aayu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <svg
+                        class="contact-icon"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                        /></svg
+                    >LinkedIn
+                </a>
+                <a
+                    class="contact-link"
                     href="https://www.instagram.com/m__aayu__/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -404,7 +714,7 @@
                         aria-hidden="true"
                     >
                         <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
                         /></svg
                     >Instagram
                 </a>
@@ -412,8 +722,8 @@
         </section>
 
         <footer>
-            <p>&#169; 2026 &#8212; Artist, Designer &amp; Developer</p>
-            <p>Built by me ~/aayu/</p>
+            <p>&#169; 2026 aayu &#8212; made with care & caffeine</p>
+            <p>~/aayu/Portfolio/</p>
         </footer>
 
         <script defer src="script.js"></script>

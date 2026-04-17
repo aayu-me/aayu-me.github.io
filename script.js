@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Hero name typing ──
   const heroNameEl = document.getElementById("heroName");
   if (heroNameEl) {
-    heroNameEl.innerHTML = "Just<br><em>code </em><br>& arts.";
+    heroNameEl.innerHTML = "Just<br><em>code </em><br>& art.";
   }
 
   // ── Eyebrow rotating role ──
@@ -159,11 +159,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typedRoleEl) {
     const roles = [
       "artist & developer",
-      "programmer",
+      "systems programmer",
       "ui/ux designer",
       "digital artist",
-      "animator",
-      "linux enthusiast",
+      "open source tinkerer",
+      "neovim enthusiast",
     ];
     setTimeout(
       () => typeRotatingRoles(typedRoleEl, roles),
@@ -386,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Cursor hover expand
     document
-      .querySelectorAll("a, button, .skill-item, .theme-toggle")
+      .querySelectorAll("a, button, .skill-item, .theme-toggle, .filter-btn, .discipline-project-card, .discipline-pill")
       .forEach((el) => {
         el.addEventListener("mouseenter", () => {
           if (cursor) cursor.classList.add("expanded");
@@ -443,8 +443,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Tilt cards
     if (!prefersReducedMotion) {
-      document.querySelectorAll(".skill-item, .project-card").forEach((el) => {
-        const isProject = el.classList.contains("project-card");
+      document.querySelectorAll(".skill-item, .project-card, .discipline-project-card").forEach((el) => {
+        const isProject = el.classList.contains("project-card") || el.classList.contains("discipline-project-card");
         el.addEventListener("mousemove", (e) => {
           const rect = el.getBoundingClientRect();
           const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -543,6 +543,24 @@ document.addEventListener("DOMContentLoaded", () => {
       .querySelectorAll(".reveal")
       .forEach((el) => el.classList.add("visible"));
   }
+
+  // ── Project filter ──
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".projects-grid .project-card");
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.dataset.filter;
+      projectCards.forEach((card) => {
+        const cat = card.dataset.category;
+        const show = filter === "all" || cat === filter;
+        card.classList.toggle("hidden", !show);
+      });
+    });
+  });
 
   // ── Mobile hamburger menu ──
   const hamburger = document.getElementById("hamburger");
